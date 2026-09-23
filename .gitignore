@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+
+# Backend runtime data (not meant to be committed)
+backend/rawform.db
+uploads/*
+analysis/*
+reports/*
+!uploads/.gitkeep
+!analysis/.gitkeep
+!reports/.gitkeep
+
+# OS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+
+# Env
+.env
+.env.local
+
+# Frontend build artifacts (frontend/ has its own .gitignore too)
+frontend/node_modules/
+frontend/.next/

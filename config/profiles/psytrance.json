@@ -1,0 +1,44 @@
+{
+  "id": "psytrance",
+  "display_name": "Psytrance",
+  "subprofiles": {
+    "progressive": {"label": "Progressive Psy", "sub_energy_high_threshold": 0.36, "low_mid_high_threshold": 0.30, "midrange_density_threshold": 0.34, "lufs_typical_range": [-9, -6]},
+    "full_on":     {"label": "Full-On",          "sub_energy_high_threshold": 0.34, "low_mid_high_threshold": 0.30, "midrange_density_threshold": 0.38, "lufs_typical_range": [-8, -5]},
+    "dark":        {"label": "Dark Psy",          "sub_energy_high_threshold": 0.38, "low_mid_high_threshold": 0.32, "midrange_density_threshold": 0.36, "lufs_typical_range": [-9, -6]},
+    "forest":      {"label": "Forest",            "sub_energy_high_threshold": 0.40, "low_mid_high_threshold": 0.34, "midrange_density_threshold": 0.40, "lufs_typical_range": [-10, -7]},
+    "psy_tech":    {"label": "Psy Tech",           "sub_energy_high_threshold": 0.36, "low_mid_high_threshold": 0.30, "midrange_density_threshold": 0.34, "lufs_typical_range": [-9, -6]}
+  },
+  "default_subprofile": "full_on",
+
+  "low_end": {
+    "priority_bands_hz": [[30,50],[50,70],[70,100],[100,150],[150,250]],
+    "sub_overload_relative_threshold": 0.36,
+    "low_mid_buildup_relative_threshold": 0.30
+  },
+  "midrange": {
+    "priority_bands_hz": [[250,500],[500,1000],[1000,2000],[2000,4000]],
+    "density_flag_threshold": 0.36,
+    "note": "Psytrance commonly carries substantial synth-layer and FX density here; flag only when unusually high relative to genre norms, not midrange presence itself."
+  },
+  "high_end": {
+    "priority_bands_hz": [[4000,8000],[8000,12000],[12000,16000],[16000,20000]],
+    "note": "Brightness/airiness is a stylistic norm in Psytrance and should not itself be treated as a problem."
+  },
+  "kick_bass": {
+    "overlap_ratio_flag_threshold": 0.30,
+    "expected_kick_fundamental_range_hz": [45, 100],
+    "note": "Classic Psytrance kick/bass patterns are often tightly interlocked by design (rolling bassline); overlap findings should be phrased especially cautiously here."
+  },
+  "stereo": {
+    "low_end_width_flag_side_ratio": 0.30,
+    "high_end_width_note": "Wide stereo above ~2kHz (atmospheres, FX, psychedelic layers) is a genre norm."
+  },
+  "loudness": {
+    "note": "No single universal target enforced; informational only."
+  },
+  "terminology": {
+    "kick": "kick",
+    "bass": "rolling bassline / sub",
+    "genre_family": "psytrance"
+  }
+}

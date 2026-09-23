@@ -1,0 +1,11 @@
+aiofiles==25.1.0
+fastapi==0.141.1
+librosa==1.0.0
+numpy==2.4.4
+pydantic==2.13.5
+pydantic_core==2.46.5
+pyloudnorm==0.2.0
+python-multipart==0.0.32
+scipy==1.17.1
+soundfile==0.14.0
+uvicorn==0.53.0

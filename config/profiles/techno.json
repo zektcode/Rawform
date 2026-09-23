@@ -1,0 +1,42 @@
+{
+  "id": "techno",
+  "display_name": "Techno",
+  "subprofiles": {
+    "hypnotic": {"label": "Hypnotic", "sub_energy_high_threshold": 0.40, "low_mid_high_threshold": 0.32, "lufs_typical_range": [-9, -6]},
+    "driving":  {"label": "Driving",  "sub_energy_high_threshold": 0.38, "low_mid_high_threshold": 0.30, "lufs_typical_range": [-8, -5]},
+    "peak_time":{"label": "Peak-Time","sub_energy_high_threshold": 0.36, "low_mid_high_threshold": 0.30, "lufs_typical_range": [-7, -4.5]},
+    "dark":     {"label": "Dark",     "sub_energy_high_threshold": 0.40, "low_mid_high_threshold": 0.34, "lufs_typical_range": [-9, -6]},
+    "minimal":  {"label": "Minimal",  "sub_energy_high_threshold": 0.42, "low_mid_high_threshold": 0.28, "lufs_typical_range": [-10, -7]},
+    "deep":     {"label": "Deep",     "sub_energy_high_threshold": 0.42, "low_mid_high_threshold": 0.30, "lufs_typical_range": [-10, -7]}
+  },
+  "default_subprofile": "driving",
+
+  "low_end": {
+    "priority_bands_hz": [[20,40],[40,60],[60,80],[80,120],[120,200]],
+    "sub_overload_relative_threshold": 0.38,
+    "low_mid_buildup_relative_threshold": 0.30
+  },
+  "midrange": {
+    "priority_bands_hz": [[200,500],[500,1000],[1000,2000],[2000,4000]]
+  },
+  "high_end": {
+    "priority_bands_hz": [[4000,8000],[8000,12000],[12000,16000],[16000,20000]],
+    "harshness_bands_hz": [[2000,5000],[5000,8000]]
+  },
+  "kick_bass": {
+    "overlap_ratio_flag_threshold": 0.30,
+    "expected_kick_fundamental_range_hz": [40, 90]
+  },
+  "stereo": {
+    "low_end_width_flag_side_ratio": 0.35,
+    "note": "Do not penalize wide percussion/atmosphere stereo automatically."
+  },
+  "loudness": {
+    "note": "No single universal target enforced; typical peak-time club masters commonly land near -8 to -6 LUFS integrated, but this varies by intent and is informational only."
+  },
+  "terminology": {
+    "kick": "kick",
+    "bass": "bass / sub-bass",
+    "genre_family": "techno"
+  }
+}

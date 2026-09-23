@@ -1,0 +1,25 @@
+# Only backend/, audio_engine/, and config/ are needed in the image
+frontend/
+tests/
+docs/
+*.md
+
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
+uploads/*
+analysis/*
+reports/*
+!uploads/.gitkeep
+!analysis/.gitkeep
+!reports/.gitkeep
+
+backend/rawform.db
+.git/
+.gitignore
+.env
+.env.local
+.DS_Store

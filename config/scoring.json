@@ -1,0 +1,26 @@
+{
+  "description": "Weights and rules for the Mix Health technical diagnostic score. This is NOT a musical-quality judgment — it summarizes how many measurement-backed findings were raised, weighted by severity and confidence, per category. Fully editable.",
+  "category_weights": {
+    "low_end": 0.22,
+    "tonal": 0.16,
+    "dynamics": 0.16,
+    "stereo": 0.14,
+    "loudness": 0.14,
+    "translation": 0.18
+  },
+  "severity_penalty": {
+    "low": 4,
+    "medium": 10,
+    "high": 18
+  },
+  "confidence_scaling": "penalty_applied = severity_penalty * confidence",
+  "category_base_score": 100,
+  "category_score_floor": 20,
+  "overall_score_formula": "weighted_average(category_scores, category_weights), rounded to nearest integer",
+  "notes": [
+    "A category with zero findings scores at its base (100), not automatically 'perfect' musically.",
+    "translation combines: mono compatibility, low-frequency phase, and true-peak headroom, since these most affect how a mix holds up on different systems.",
+    "tonal combines: spectral balance findings, resonances, and harshness findings.",
+    "Scores are clipped to [category_score_floor, 100] per category."
+  ]
+}
