@@ -110,7 +110,7 @@ def _decode_with_ffmpeg(path: str) -> LoadedAudio:
 def _decode_with_soundfile(path: str, original_path: Optional[str] = None, original_format: Optional[str] = None) -> LoadedAudio:
     try:
         info = sf.info(path)
-        data, sr = sf.read(path, always_2d=True, dtype="float64")
+        data, sr = sf.read(path, always_2d=True, dtype="float32")
     except Exception as exc:  # noqa: BLE001
         raise AudioLoadError(
             "The file could not be decoded. It may be corrupt or use an unsupported codec.",
