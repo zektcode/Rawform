@@ -110,8 +110,7 @@ def run_full_analysis(
 
     except Exception as exc:  # noqa: BLE001
         raise AnalysisError(
-            "Analysis failed while processing the audio. The file may be unusual "
-            "in a way this V1 doesn't handle yet.",
+            f"DEBUG: {type(exc).__name__}: {exc}",
         ) from exc
 
     analysis = {
