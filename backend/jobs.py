@@ -44,8 +44,8 @@ def _run(analysis_id: str, file_path: str, original_filename: str,
             result.get("mix_health", {}).get("overall_score"),
             result.get("metadata", {}).get("duration_seconds"),
         )
-    except (AudioLoadError, AnalysisError) as exc:
-        logger.warning("Analysis %s failed: %s", analysis_id, exc)
+        except (AudioLoadError, AnalysisError) as exc:
+        logger.exception("Analysis %s failed: %s", analysis_id, exc)
         storage.mark_failed(analysis_id, str(exc))
     except Exception as exc:  # noqa: BLE001
         logger.exception("Analysis %s crashed unexpectedly", analysis_id)
