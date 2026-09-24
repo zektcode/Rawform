@@ -20,8 +20,16 @@ def estimate_tempo(mono: np.ndarray, sample_rate: int) -> dict:
     if len(mono) < sample_rate * 4:
         return {"bpm": None, "confidence": 0.0, "note": "Track too short for tempo detection."}
 
-    onset_env = librosa.onset.onset_strength(y=mono.astype(np.float32), sr=sample_rate)
-    tempo, beats = librosa.beat.beat_track(onset_envelope=onset_env, sr=sample_rate)
+        target_sr = 22050
+    if sample_rate > target_sr:
+        y_analysis = librosa.resample(mono.astype(np.float32), orig_sr=sample_rate, target_sr=target_sr)
+        analysis_sr = target_sr
+    else:
+        y_analysis = mono.astype(np.float32)
+        analysis_sr = sample_rate
+
+    onset_env = librosa.onset.onset_strength(y=y_analysis, sr=analysis_sr)
+    tempo, beats = librosa.beat.beat_track(onset_envelope=onset_env, sr=analysis_sr)
     tempo_val = float(np.atleast_1d(tempo)[0])
 
     # Confidence proxy: autocorrelation peak clarity of the onset envelope
@@ -48,7 +56,14 @@ def estimate_key(mono: np.ndarray, sample_rate: int) -> dict:
     if len(mono) < sample_rate * 4:
         return {"key": None, "confidence": 0.0, "note": "Track too short for key detection."}
 
-    chroma = librosa.feature.chroma_cqt(y=mono.astype(np.float32), sr=sample_rate)
+        target_sr = 22050
+    if sample_rate > target_sr:
+        y_analysis = librosa.resample(mono.astype(np.float32), orig_sr=sample_rate, target_sr=target_sr)
+        analysis_sr = target_sr
+    else:
+        y_analysis = mono.astype(np.float32)
+        analysis_sr = sample_rate
+    chroma = librosa.feature.chroma_cqt(y=y_analysis, sr=analysis_sr)
     chroma_mean = chroma.mean(axis=1)
     if np.sum(chroma_mean) <= 0:
         return {"key": None, "confidence": 0.0, "note": "Not confidently detected."}
